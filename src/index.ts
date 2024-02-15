@@ -1,6 +1,6 @@
 import express, { Express, Request, Response } from 'express';
 import CustomResponse from './utils/response';
-import postRouter from './routes/post';
+import postRouter from './routes/blog';
 
 import dotenv from 'dotenv';
 
@@ -9,10 +9,8 @@ import databaseConnection from './config/db';
 
 const app: Express = express();
 
-
-
 app.use(express.json());
-app.use('/api/posts', postRouter);
+app.use('/api', postRouter);
 
 app.get('/api/*', (req: Request, res: Response) => {
   const response = new CustomResponse(req, res);
