@@ -21,3 +21,8 @@ route.get(
 route.post('/posts/:id/comments', new PostController().CreateComment);
 
 export default route;
+
+// status codes 504 timeout server  endpoint too much to respomd loop  .jpg npg set rule post  get
+//  200 - 299  success codes
+// 300 - 399 bad request codes
+// 400 - 499 auth codes
