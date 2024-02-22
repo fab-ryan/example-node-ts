@@ -41,7 +41,7 @@ export const CheckUserAuth = (
     const { email, password } = req.headers;
     const user = sampleUsers.find((user) => user.email === email);
     if (!user) {
-      return res.status(401).json({ message: 'Invalid email or password' });
+      return res.status(404).json({ message: 'User Not Found' });
     }
     if (user.password !== password) {
       return res.status(401).json({ message: 'Invalid email or password' });
@@ -49,7 +49,7 @@ export const CheckUserAuth = (
     req.user = user;
     next();
   } catch (error) {
-    res.status(401).json({ message: 'Invalid email or password' });
+    res.status(500).json({ message: 'internal server error' });
   }
 };
 export const CheckUserRole = (
@@ -60,7 +60,7 @@ export const CheckUserRole = (
   const user = req.user;
   console.log(user);
   if (user?.role !== 'admin') {
-    return res.status(401).json({ message: 'Unauthorized' });
+    return res.status(403).json({ message: 'Unauthorized' });
   }
   next();
 };

@@ -48,7 +48,7 @@ class PostController {
         post,
         comments,
       };
-      response.send<typeof payload>(payload, 'Post Fetched Successfully', 200);
+      response.send<typeof payload>(payload, 'Post Fetched Successfully', 201);
     } catch (error) {
       const errorMessage = error as string;
       response.send(null, errorMessage as string, 500);

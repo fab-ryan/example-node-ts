@@ -16,19 +16,3 @@ async function connectToDatabase() {
   }
 }
 export default connectToDatabase;
-
-const testingDbUrl = process.env.MONGODB_PASSWORD || '';
-
- async function connectToTestingDatabase() {
-  try {
-    const connection = await mongoose.connect(testingDbUrl);
-    console.log('Testing database connected');
-    console.log('Connection state:', connection.connection.readyState);
-
-    
-  } catch (err) {
-    console.log('Error connecting to testing database', err);
-  }
-}
-
-export { connectToTestingDatabase };
