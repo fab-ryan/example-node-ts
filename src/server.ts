@@ -7,7 +7,6 @@ import dotenv from 'dotenv';
 // 90% or 100% coverage
 
 dotenv.config();
-import databaseConnection from './config/db';
 
 const app: Express = express();
 
@@ -19,6 +18,5 @@ app.get('/api/*', (req: Request, res: Response) => {
   response.send(null, 'API Not Found', 404);
 });
 
-databaseConnection();
 
 export default app;
